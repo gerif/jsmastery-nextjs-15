@@ -7,7 +7,6 @@ export default async function Home() {
   console.log(session);
   return (
     <div>
-      <h1>Hello World</h1>
       <form
         className={"px-10 pt-[100px] "}
         action={async () => {
