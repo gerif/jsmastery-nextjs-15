@@ -53,7 +53,6 @@ interface SearchParams {
 
 const Home = async ({ searchParams }: SearchParams) => {
   const { query = "", filter = "" } = await searchParams;
-
   const filteredQuestions = questions.filter((question) => {
     const matchesQuery = question.title
       .toLowerCase()
