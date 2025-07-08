@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
 import QuestionCard from "@/components/cards/QuestionCard";
 import handleError from "@/lib/handlers/error";
-import dbConnect from "@/lib/mongoose";
+import { api } from "@/lib/api";
 
 const questions = [
   {
@@ -50,7 +50,7 @@ const questions = [
 ];
 const test = async () => {
   try {
-    await dbConnect();
+    return await api.users.getAll();
   } catch (e) {
     return handleError(e);
   }
@@ -61,8 +61,9 @@ interface SearchParams {
 }
 
 const Home = async ({ searchParams }: SearchParams) => {
+  const users = await test();
+  console.log(users);
   const { query = "", filter = "" } = await searchParams;
-  const result = await test();
   const filteredQuestions = questions.filter((question) => {
     const matchesQuery = question.title
       .toLowerCase()
