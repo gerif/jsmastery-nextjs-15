@@ -27,6 +27,7 @@ const TagCard = ({
   handleRemove,
 }: Props) => {
   const iconClass = getDeviconClassname(name);
+  console.log(iconClass, "pp");
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
   };
